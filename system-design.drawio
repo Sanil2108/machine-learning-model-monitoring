@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-02-08T19:09:17.822Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" etag="-1bwKcDfJt2yqP2EMgjK" version="14.2.9" type="github">
+<mxfile host="app.diagrams.net" modified="2021-02-08T21:56:10.081Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" etag="fXDs2eORnlsL7XYfCVtF" version="14.3.0" type="github">
   <diagram id="q6d8WJFvGTYh6739gFct" name="Page-1">
-    <mxGraphModel dx="4400" dy="1612" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2825" dy="672" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -137,7 +137,7 @@
         <mxCell id="pepfG31Gy_sQ8T56u4hY-195" value="RabbitMQ acts as a simple queue service and handles the logging process asynchronously" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#FFFFFF;fontSize=12;align=center;" parent="pepfG31Gy_sQ8T56u4hY-194" vertex="1">
           <mxGeometry x="20.29" y="16.33" width="259.71" height="53.67" as="geometry" />
         </mxCell>
-        <mxCell id="pepfG31Gy_sQ8T56u4hY-196" value="7" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;strokeWidth=2;fontSize=16;align=center;fontColor=#FFFFFF;fillColor=#000000;fontFamily=Courier New;" parent="pepfG31Gy_sQ8T56u4hY-194" vertex="1">
+        <mxCell id="pepfG31Gy_sQ8T56u4hY-196" value="9" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;strokeWidth=2;fontSize=16;align=center;fontColor=#FFFFFF;fillColor=#000000;fontFamily=Courier New;" parent="pepfG31Gy_sQ8T56u4hY-194" vertex="1">
           <mxGeometry width="32.857142857142854" height="32.857142857142854" as="geometry" />
         </mxCell>
         <mxCell id="pepfG31Gy_sQ8T56u4hY-201" value="" style="group" parent="pepfG31Gy_sQ8T56u4hY-63" vertex="1" connectable="0">
@@ -146,7 +146,7 @@
         <mxCell id="pepfG31Gy_sQ8T56u4hY-202" value="The NodeJS application for logging provides functionalities that include storing log data to Elastic Search and sending alerts using email" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#FFFFFF;fontSize=12;align=center;" parent="pepfG31Gy_sQ8T56u4hY-201" vertex="1">
           <mxGeometry x="20.29" y="16.33" width="259.71" height="53.67" as="geometry" />
         </mxCell>
-        <mxCell id="pepfG31Gy_sQ8T56u4hY-203" value="8" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;strokeWidth=2;fontSize=16;align=center;fontColor=#FFFFFF;fillColor=#000000;fontFamily=Courier New;" parent="pepfG31Gy_sQ8T56u4hY-201" vertex="1">
+        <mxCell id="pepfG31Gy_sQ8T56u4hY-203" value="10" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;strokeWidth=2;fontSize=16;align=center;fontColor=#FFFFFF;fillColor=#000000;fontFamily=Courier New;" parent="pepfG31Gy_sQ8T56u4hY-201" vertex="1">
           <mxGeometry width="32.857142857142854" height="32.857142857142854" as="geometry" />
         </mxCell>
         <mxCell id="pepfG31Gy_sQ8T56u4hY-204" value="" style="group" parent="pepfG31Gy_sQ8T56u4hY-63" vertex="1" connectable="0">
@@ -155,7 +155,7 @@
         <mxCell id="pepfG31Gy_sQ8T56u4hY-205" value="Elastic Search acts as a data store for log data" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#FFFFFF;fontSize=12;align=center;" parent="pepfG31Gy_sQ8T56u4hY-204" vertex="1">
           <mxGeometry x="20.29" y="16.33" width="169.71" height="53.67" as="geometry" />
         </mxCell>
-        <mxCell id="pepfG31Gy_sQ8T56u4hY-206" value="10" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;strokeWidth=2;fontSize=16;align=center;fontColor=#FFFFFF;fillColor=#000000;fontFamily=Courier New;" parent="pepfG31Gy_sQ8T56u4hY-204" vertex="1">
+        <mxCell id="pepfG31Gy_sQ8T56u4hY-206" value="11" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;strokeWidth=2;fontSize=16;align=center;fontColor=#FFFFFF;fillColor=#000000;fontFamily=Courier New;" parent="pepfG31Gy_sQ8T56u4hY-204" vertex="1">
           <mxGeometry width="32.857142857142854" height="32.857142857142854" as="geometry" />
         </mxCell>
         <mxCell id="pepfG31Gy_sQ8T56u4hY-207" value="" style="group" parent="pepfG31Gy_sQ8T56u4hY-63" vertex="1" connectable="0">
@@ -164,7 +164,7 @@
         <mxCell id="pepfG31Gy_sQ8T56u4hY-208" value="Kibana is used for visualising log data" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#FFFFFF;fontSize=12;align=center;" parent="pepfG31Gy_sQ8T56u4hY-207" vertex="1">
           <mxGeometry x="20.29" y="16.33" width="169.71" height="53.67" as="geometry" />
         </mxCell>
-        <mxCell id="pepfG31Gy_sQ8T56u4hY-209" value="11" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;strokeWidth=2;fontSize=16;align=center;fontColor=#FFFFFF;fillColor=#000000;fontFamily=Courier New;" parent="pepfG31Gy_sQ8T56u4hY-207" vertex="1">
+        <mxCell id="pepfG31Gy_sQ8T56u4hY-209" value="12" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;strokeWidth=2;fontSize=16;align=center;fontColor=#FFFFFF;fillColor=#000000;fontFamily=Courier New;" parent="pepfG31Gy_sQ8T56u4hY-207" vertex="1">
           <mxGeometry width="32.857142857142854" height="32.857142857142854" as="geometry" />
         </mxCell>
         <mxCell id="pepfG31Gy_sQ8T56u4hY-177" value="" style="group" parent="pepfG31Gy_sQ8T56u4hY-63" vertex="1" connectable="0">
@@ -232,7 +232,7 @@
         <mxCell id="pepfG31Gy_sQ8T56u4hY-66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;" parent="1" source="pepfG31Gy_sQ8T56u4hY-25" target="pepfG31Gy_sQ8T56u4hY-29" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="whnMAx33O79NBxOJvGVZ-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=none;startFill=0;" edge="1" parent="1" source="pepfG31Gy_sQ8T56u4hY-25">
+        <mxCell id="whnMAx33O79NBxOJvGVZ-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=none;startFill=0;" parent="1" source="pepfG31Gy_sQ8T56u4hY-25" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="290" y="869" as="targetPoint" />
             <Array as="points">
@@ -534,40 +534,40 @@
         <mxCell id="pepfG31Gy_sQ8T56u4hY-199" value="Amazon Simple Email Service is used to send email alerts to the user" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#FFFFFF;fontSize=12;align=center;" parent="pepfG31Gy_sQ8T56u4hY-198" vertex="1">
           <mxGeometry x="20.29" y="16.33" width="199.71" height="43.67" as="geometry" />
         </mxCell>
-        <mxCell id="pepfG31Gy_sQ8T56u4hY-200" value="9" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;strokeWidth=2;fontSize=16;align=center;fontColor=#FFFFFF;fillColor=#000000;fontFamily=Courier New;" parent="pepfG31Gy_sQ8T56u4hY-198" vertex="1">
+        <mxCell id="pepfG31Gy_sQ8T56u4hY-200" value="13" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;strokeWidth=2;fontSize=16;align=center;fontColor=#FFFFFF;fillColor=#000000;fontFamily=Courier New;" parent="pepfG31Gy_sQ8T56u4hY-198" vertex="1">
           <mxGeometry width="32.857142857142854" height="32.857142857142854" as="geometry" />
         </mxCell>
-        <mxCell id="whnMAx33O79NBxOJvGVZ-5" value="" style="group" vertex="1" connectable="0" parent="1">
+        <mxCell id="whnMAx33O79NBxOJvGVZ-5" value="" style="group" parent="1" vertex="1" connectable="0">
           <mxGeometry x="370" y="830" width="280" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="whnMAx33O79NBxOJvGVZ-6" value="All inputs are stored in an S3 bucket (Standard class initially). This bucket would be accessed by all the APIs" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#FFFFFF;fontSize=12;align=center;" vertex="1" parent="whnMAx33O79NBxOJvGVZ-5">
+        <mxCell id="whnMAx33O79NBxOJvGVZ-6" value="All inputs are stored in an S3 bucket (Standard class initially). This bucket would be accessed by all the APIs" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#FFFFFF;fontSize=12;align=center;" parent="whnMAx33O79NBxOJvGVZ-5" vertex="1">
           <mxGeometry x="20.29" y="16.33" width="259.71" height="53.67" as="geometry" />
         </mxCell>
-        <mxCell id="whnMAx33O79NBxOJvGVZ-7" value="7" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;strokeWidth=2;fontSize=16;align=center;fontColor=#FFFFFF;fillColor=#000000;fontFamily=Courier New;" vertex="1" parent="whnMAx33O79NBxOJvGVZ-5">
+        <mxCell id="whnMAx33O79NBxOJvGVZ-7" value="7" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;strokeWidth=2;fontSize=16;align=center;fontColor=#FFFFFF;fillColor=#000000;fontFamily=Courier New;" parent="whnMAx33O79NBxOJvGVZ-5" vertex="1">
           <mxGeometry width="32.857142857142854" height="32.857142857142854" as="geometry" />
         </mxCell>
-        <mxCell id="whnMAx33O79NBxOJvGVZ-8" value="" style="points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=#60A337;gradientDirection=north;fillColor=#277116;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.infrequent_access_storage_class;" vertex="1" parent="1">
+        <mxCell id="whnMAx33O79NBxOJvGVZ-8" value="" style="points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=#60A337;gradientDirection=north;fillColor=#277116;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.infrequent_access_storage_class;" parent="1" vertex="1">
           <mxGeometry x="803" y="834.16" width="78" height="78" as="geometry" />
         </mxCell>
-        <mxCell id="whnMAx33O79NBxOJvGVZ-9" value="" style="points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=#60A337;gradientDirection=north;fillColor=#277116;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;" vertex="1" parent="1">
+        <mxCell id="whnMAx33O79NBxOJvGVZ-9" value="" style="points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=#60A337;gradientDirection=north;fillColor=#277116;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;" parent="1" vertex="1">
           <mxGeometry x="290" y="826" width="78" height="78" as="geometry" />
         </mxCell>
-        <mxCell id="whnMAx33O79NBxOJvGVZ-10" value="" style="group" vertex="1" connectable="0" parent="1">
+        <mxCell id="whnMAx33O79NBxOJvGVZ-10" value="" style="group" parent="1" vertex="1" connectable="0">
           <mxGeometry x="660" y="710" width="280" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="whnMAx33O79NBxOJvGVZ-11" value="The inputs are then moved to S3 IA(to save costs) after a period of 7 days. This is for Active Learning dataset that can be later used for training" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#FFFFFF;fontSize=12;align=center;" vertex="1" parent="whnMAx33O79NBxOJvGVZ-10">
+        <mxCell id="whnMAx33O79NBxOJvGVZ-11" value="The inputs are then moved to S3 IA(to save costs) after a period of 7 days. This is for Active Learning dataset that can be later used for training" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#FFFFFF;fontSize=12;align=center;" parent="whnMAx33O79NBxOJvGVZ-10" vertex="1">
           <mxGeometry x="20" y="16.33" width="160" height="103.67" as="geometry" />
         </mxCell>
-        <mxCell id="whnMAx33O79NBxOJvGVZ-12" value="7" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;strokeWidth=2;fontSize=16;align=center;fontColor=#FFFFFF;fillColor=#000000;fontFamily=Courier New;" vertex="1" parent="whnMAx33O79NBxOJvGVZ-10">
+        <mxCell id="whnMAx33O79NBxOJvGVZ-12" value="8" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;strokeWidth=2;fontSize=16;align=center;fontColor=#FFFFFF;fillColor=#000000;fontFamily=Courier New;" parent="whnMAx33O79NBxOJvGVZ-10" vertex="1">
           <mxGeometry width="32.857142857142854" height="32.857142857142854" as="geometry" />
         </mxCell>
-        <mxCell id="whnMAx33O79NBxOJvGVZ-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;" edge="1" parent="1" source="whnMAx33O79NBxOJvGVZ-13" target="whnMAx33O79NBxOJvGVZ-8">
+        <mxCell id="whnMAx33O79NBxOJvGVZ-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;" parent="1" source="whnMAx33O79NBxOJvGVZ-13" target="whnMAx33O79NBxOJvGVZ-8" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="whnMAx33O79NBxOJvGVZ-13" value="7 Days" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#d5e8d4;shape=mxgraph.archimate3.event;strokeColor=#82b366;" vertex="1" parent="1">
+        <mxCell id="whnMAx33O79NBxOJvGVZ-13" value="7 Days" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#d5e8d4;shape=mxgraph.archimate3.event;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="670" y="855.66" width="100" height="35" as="geometry" />
         </mxCell>
-        <mxCell id="whnMAx33O79NBxOJvGVZ-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;" edge="1" parent="1" source="whnMAx33O79NBxOJvGVZ-6" target="whnMAx33O79NBxOJvGVZ-13">
+        <mxCell id="whnMAx33O79NBxOJvGVZ-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;" parent="1" source="whnMAx33O79NBxOJvGVZ-6" target="whnMAx33O79NBxOJvGVZ-13" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
