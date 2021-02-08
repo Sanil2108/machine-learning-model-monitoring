@@ -15,17 +15,17 @@ services:
       - database
     command: /database/init.sh
 
-  monitoring-service:
-    build: ./monitoring-service
+  # monitoring-service:
+  #   build: ./monitoring-service
 
-  rest-api-service:
-    build: ./rest-api-service
+  # rest-api-service:
+  #   build: ./rest-api-service
 
-  elastic-search:
-    image: elasticsearch
+  # elastic-search:
+  #   image: elasticsearch
 
-  kibana:
-    image: kibana
+  # kibana:
+  #   image: kibana
 
   rabbitmq:
     image: rabbitmq
