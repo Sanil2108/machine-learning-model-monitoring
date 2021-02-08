@@ -1,0 +1,34 @@
+version: "3.3"
+services:
+  database:
+    image: postgres:13
+    env_file: ./database/.env
+    ports:
+      - "5433:5432"
+  
+  database-config:
+    image: postgres:13
+    env_file: ./database/.env
+    volumes:
+      - "./database:/database"
+    depends_on:
+      - database
+    command: /database/init.sh
+
+  monitoring-service:
+    build: ./monitoring-service
+
+  rest-api-service:
+    build: ./rest-api-service
+
+  elastic-search:
+    image: elasticsearch
+
+  kibana:
+    image: kibana
+
+  rabbitmq:
+    image: rabbitmq
+
+  web-server:
+    image: nginx
