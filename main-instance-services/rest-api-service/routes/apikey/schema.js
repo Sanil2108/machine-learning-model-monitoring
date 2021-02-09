@@ -1,12 +1,12 @@
 const Joi = require('joi');
 
-const createApiKey = Joi.object({});
+const createApiKeySchema = Joi.object({});
 
-const invalidateApiKey = Joi.object({
+const invalidateApiKeySchema = Joi.object({
   apiKey: Joi.string().required()
 });
 
 module.exports = {
-  createApiKey,
-  invalidateApiKey,
+  createApiKeySchema,
+  invalidateApiKeySchema,
 }

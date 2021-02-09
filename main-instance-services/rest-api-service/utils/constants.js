@@ -5,7 +5,9 @@ const ROUTES = {
     REGISTER_USER: '/'
   },
   API_KEY: {
-    BASE_URL: '/apikey'
+    BASE_URL: '/apikey',
+    REGISTER_API_KEY: '/',
+    INVALIDATE_API_KEY: '/invalidate'
   }
 }
 
