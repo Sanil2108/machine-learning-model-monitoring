@@ -20,14 +20,14 @@ class PostgresDriver {
     await callback(this.client, async () => {
       await this.client.query('ROLLBACK');
       return {
-        successful: false
+        success: false
       };
     });
 
     await this.client.query('COMMIT');
 
     return {
-      successful: true,
+      success: true,
     }
   }
 

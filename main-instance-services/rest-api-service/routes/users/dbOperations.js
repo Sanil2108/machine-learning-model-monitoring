@@ -1,5 +1,5 @@
 const postgresDriver = require("../../drivers/postgresDriver");
-const { getNumberOfUsersWithEmailQuery, createUserQuery } = require("./sqlQueries");
+const { getNumberOfUsersWithEmailQuery, createUserQuery, getPasswordHashQuery, deleteUserQuery } = require("./sqlQueries");
 
 const getPasswordHashFromEmail = async ({email}) => {
   const query = getPasswordHashQuery();
@@ -53,7 +53,18 @@ const createUser = async ({email, hashedPassword, registeredAt}) => {
 }
 
 const deleteUser = async ({email}) => {
-  
+  const query = deleteUserQuery();
+
+  const { rowCount } = await postgresDriver.query(query, [email]);
+  if (rowCount === 0) {
+    return {
+      success: false,
+    };
+  }
+
+  return {
+    success: true,
+  };
 }
 
 module.exports = {

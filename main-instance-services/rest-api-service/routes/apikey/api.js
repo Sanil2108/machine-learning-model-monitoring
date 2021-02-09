@@ -15,7 +15,7 @@ const confirmIfApiKeyIsValid = async ({apiKey, email}) => {
   }
 
   return {
-    successful: true,
+    success: true,
     data: {
       valid: validAPIKey,
     }

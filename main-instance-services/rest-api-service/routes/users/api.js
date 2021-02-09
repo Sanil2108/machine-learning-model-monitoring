@@ -1,5 +1,5 @@
 const { hashPassword } = require("../../utils/utils");
-const { createUser, doesUserWithEmailAlreadyExist } = require("./dbOperations");
+const { createUser, doesUserWithEmailAlreadyExist, deleteUser } = require("./dbOperations");
 
 const registerUser = async ({body}, res) => {
   const {email, password} = body;
@@ -25,6 +25,7 @@ const registerUser = async ({body}, res) => {
   
   if (!createUserResponse.success) {
     res.status(500).send("Could not create the user");
+    return;
   }
 
   res.status(201)
@@ -32,14 +33,20 @@ const registerUser = async ({body}, res) => {
   return {}
 }
 
-const deleteUser = async ({user}, res) => {
+const removeUser = async ({user}, res) => {
   const {email} = user;
 
-  // await 
+  const deleteUserResponse = await deleteUser({email});
 
+  if (!deleteUserResponse.success) {
+    res.status(500).send("Could not delete the user");
+    return;
+  }
+
+  return {}
 }
 
 module.exports = {
   registerUser,
-  deleteUser
+  removeUser
 }

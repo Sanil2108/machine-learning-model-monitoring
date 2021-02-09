@@ -1,7 +1,7 @@
 const atob = require("atob");
 const {validatePassword, checkFormatOfUuid} = require("../utils/utils");
-const postgresDriver = require("../drivers/postgresDriver");
 const { confirmIfApiKeyIsValid } = require("../routes/apikey/api");
+const {getPasswordHashFromEmail, } = require("../routes/users/dbOperations");
 
 const schemaValidationMiddleware = (schema) => {
   return async (req, res, next) => {
@@ -50,9 +50,10 @@ const basicAuthorizationMiddleware = async (req, res, next) => {
       email,
     };
 
-    const response = await getPasswordHashFromEmail(email);
-    if (!response.successful) {
+    const response = await getPasswordHashFromEmail({email});
+    if (!response.success) {
       res.status(401).send("Authorization failed. ");
+      return;
     }
 
     const passwordHash = response.data.passwordHash;
@@ -85,14 +86,14 @@ const apiKeyAuthorisationMiddleware = async (req, res, next) => {
     }
 
     const getEmailResponse = await getEmailFromApiKey({apiKey});
-    if (!getEmailResponse.successful) {
+    if (!getEmailResponse.success) {
       res.status(404).send("No such API key exist");
       return;
     }
     const email = getEmailResponse.data.email;
     
     const confirmIfApiKeyIsValidResponse = await confirmIfApiKeyIsValid({apiKey, email});
-    if (!confirmIfApiKeyIsValidResponse.successful) {
+    if (!confirmIfApiKeyIsValidResponse.success) {
       res.status(401).send("API Key is not valid.");
       return;
     }

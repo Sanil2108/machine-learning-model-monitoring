@@ -7,7 +7,7 @@ const {
 const { userRegisterSchema, deleteUserSchema } = require("./schema");
 const {ROUTES} = require('../../utils/constants');
 
-const { registerUser, deleteUser } = require("./api");
+const { registerUser, removeUser } = require("./api");
 
 router.post(
   `${ROUTES.USERS.REGISTER_USER}`,
@@ -19,7 +19,7 @@ router.delete(
   `${ROUTES.USERS.DELETE_USER}`,
   schemaValidationMiddleware(deleteUserSchema),
   basicAuthorizationMiddleware,
-  apiForwardMiddleware(deleteUser)
+  apiForwardMiddleware(removeUser)
 );
 
 module.exports = router;
