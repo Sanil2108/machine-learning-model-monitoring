@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS user_master;
 
 DROP TABLE IF EXISTS api_key;
 

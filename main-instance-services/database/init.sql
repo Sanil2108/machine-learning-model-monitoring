@@ -1,6 +1,6 @@
 -- Creating tables
-CREATE TABLE IF NOT EXISTS user (
-  users_id SERIAL PRIMARY_KEY,
+CREATE TABLE IF NOT EXISTS user_master (
+  users_id SERIAL PRIMARY KEY,
   email TEXT NOT NULL UNIQUE,
   password_hash TEXT NOT NULL,
   registered_at TIMESTAMP NOT NULL
