@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-02-10T11:33:27.606Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" etag="PeIodDNDmZ5-zSG1zRQ2" version="14.3.0" type="github">
+<mxfile host="app.diagrams.net" modified="2021-02-10T11:33:51.099Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" etag="IVccvkmB7roTk-hY6IK-" version="14.3.0" type="github">
   <diagram id="q6d8WJFvGTYh6739gFct" name="Page-1">
     <mxGraphModel dx="3050" dy="806" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -555,7 +555,7 @@
         <mxCell id="whnMAx33O79NBxOJvGVZ-10" value="" style="group" parent="1" vertex="1" connectable="0">
           <mxGeometry x="660" y="710" width="280" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="whnMAx33O79NBxOJvGVZ-11" value="The inputs are then moved to S3 IA(to save costs) after a period of 7 days. This is for Active Learning dataset that can be later used for training" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#FFFFFF;fontSize=12;align=center;" parent="whnMAx33O79NBxOJvGVZ-10" vertex="1">
+        <mxCell id="whnMAx33O79NBxOJvGVZ-11" value="The inputs are then moved to S3 IA(to save costs) after a period of 30 days. This is for Active Learning dataset that can be later used for training" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#FFFFFF;fontSize=12;align=center;" parent="whnMAx33O79NBxOJvGVZ-10" vertex="1">
           <mxGeometry x="20" y="16.33" width="160" height="103.67" as="geometry" />
         </mxCell>
         <mxCell id="whnMAx33O79NBxOJvGVZ-12" value="8" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;strokeWidth=2;fontSize=16;align=center;fontColor=#FFFFFF;fillColor=#000000;fontFamily=Courier New;" parent="whnMAx33O79NBxOJvGVZ-10" vertex="1">
