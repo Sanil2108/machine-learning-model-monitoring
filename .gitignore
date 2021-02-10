@@ -2,4 +2,6 @@
 *.pyc
 
 **/node_modules
-*.tfstate
+*.tfstate*
+
+.terraform
