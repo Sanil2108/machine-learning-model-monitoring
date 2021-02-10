@@ -16,8 +16,8 @@ const {ROUTES} = require('./utils/constants');
   // const rabbitMqDriver = require("./drivers/rabbitMqDriver");
   // await rabbitMqDriver.initialise();
 
-  // const s3Driver = require("./drivers/s3Driver");
-  // await s3Driver.initialise();
+  const s3Driver = require("./drivers/s3Driver");
+  await s3Driver.initialise();
 
   const userRouter = require('./routes/users/routes');
   const apiKeyRouter = require('./routes/apikey/routes');
