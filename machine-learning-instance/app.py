@@ -5,6 +5,7 @@ import requests
 import uuid
 import cv2
 import os
+import random
 
 app = Flask(__name__)
 
@@ -43,5 +44,6 @@ def predict():
 
   # Return all the faces found in JSON
   return {
-    'faceLocationRectangles': rectangles
+    'faceLocationRectangles': rectangles,
+    'confidence': random.uniform(0, 1)
   }
