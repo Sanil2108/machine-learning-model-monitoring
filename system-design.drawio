@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-02-10T19:36:13.829Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" etag="eCupRV879XFEsLutwbki" version="14.3.0" type="github">
+<mxfile host="app.diagrams.net" modified="2021-02-11T11:25:01.049Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" etag="5X5KZUDx3meUssEk_aap" version="14.3.0" type="github">
   <diagram id="q6d8WJFvGTYh6739gFct" name="Page-1">
-    <mxGraphModel dx="4274" dy="2300" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="3290" dy="1906" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -80,7 +80,7 @@
         <mxCell id="pepfG31Gy_sQ8T56u4hY-181" value="A Flask application interacts with the machine learning model&lt;br&gt;running on a G3 instance" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#FFFFFF;fontSize=12;align=center;" parent="pepfG31Gy_sQ8T56u4hY-180" vertex="1">
           <mxGeometry x="20.29" y="16.33" width="229.71" height="53.67" as="geometry" />
         </mxCell>
-        <mxCell id="pepfG31Gy_sQ8T56u4hY-182" value="6" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;strokeWidth=2;fontSize=16;align=center;fontColor=#FFFFFF;fillColor=#000000;fontFamily=Courier New;" parent="pepfG31Gy_sQ8T56u4hY-180" vertex="1">
+        <mxCell id="pepfG31Gy_sQ8T56u4hY-182" value="8" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;strokeWidth=2;fontSize=16;align=center;fontColor=#FFFFFF;fillColor=#000000;fontFamily=Courier New;" parent="pepfG31Gy_sQ8T56u4hY-180" vertex="1">
           <mxGeometry width="32.857142857142854" height="32.857142857142854" as="geometry" />
         </mxCell>
         <mxCell id="pepfG31Gy_sQ8T56u4hY-188" value="&lt;span style=&quot;background-color: rgb(0 , 0 , 0)&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&amp;nbsp;Monitoring system&amp;nbsp;&lt;/font&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;dashed=1;verticalAlign=bottom;" parent="pepfG31Gy_sQ8T56u4hY-63" vertex="1">
@@ -147,10 +147,10 @@
           <mxGeometry width="32.857142857142854" height="32.857142857142854" as="geometry" />
         </mxCell>
         <mxCell id="pepfG31Gy_sQ8T56u4hY-201" value="" style="group" parent="pepfG31Gy_sQ8T56u4hY-63" vertex="1" connectable="0">
-          <mxGeometry x="1040" y="232.60000000000002" width="280" height="70" as="geometry" />
+          <mxGeometry x="1040" y="232.60000000000002" width="330" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="pepfG31Gy_sQ8T56u4hY-202" value="The NodeJS application for logging provides functionalities that include storing log data to Elastic Search and sending alerts using email" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#FFFFFF;fontSize=12;align=center;" parent="pepfG31Gy_sQ8T56u4hY-201" vertex="1">
-          <mxGeometry x="20.29" y="16.33" width="259.71" height="53.67" as="geometry" />
+        <mxCell id="pepfG31Gy_sQ8T56u4hY-202" value="The NodeJS application for logging provides functionalities that include processing image data, storing data to Elastic Search and sending alerts using email" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#FFFFFF;fontSize=12;align=center;" parent="pepfG31Gy_sQ8T56u4hY-201" vertex="1">
+          <mxGeometry x="20.29" y="16.33" width="309.71" height="63.67" as="geometry" />
         </mxCell>
         <mxCell id="pepfG31Gy_sQ8T56u4hY-203" value="10" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;strokeWidth=2;fontSize=16;align=center;fontColor=#FFFFFF;fillColor=#000000;fontFamily=Courier New;" parent="pepfG31Gy_sQ8T56u4hY-201" vertex="1">
           <mxGeometry width="32.857142857142854" height="32.857142857142854" as="geometry" />
@@ -177,7 +177,7 @@
           <mxGeometry x="340" y="340.1" width="230" height="70" as="geometry" />
         </mxCell>
         <mxCell id="pepfG31Gy_sQ8T56u4hY-178" value="A simple REST API written in NodeJS" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#FFFFFF;fontSize=12;align=center;" parent="pepfG31Gy_sQ8T56u4hY-177" vertex="1">
-          <mxGeometry x="20.29" y="16.33" width="139.71" height="53.67" as="geometry" />
+          <mxGeometry x="20.29" y="16.33" width="199.71" height="53.67" as="geometry" />
         </mxCell>
         <mxCell id="pepfG31Gy_sQ8T56u4hY-179" value="5" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;strokeWidth=2;fontSize=16;align=center;fontColor=#FFFFFF;fillColor=#000000;fontFamily=Courier New;" parent="pepfG31Gy_sQ8T56u4hY-177" vertex="1">
           <mxGeometry width="32.857142857142854" height="32.857142857142854" as="geometry" />
@@ -193,6 +193,9 @@
         </mxCell>
         <mxCell id="pepfG31Gy_sQ8T56u4hY-64" value="&lt;span style=&quot;background-color: rgb(0 , 0 , 0)&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&amp;nbsp;Client facing REST API&amp;nbsp;&lt;/font&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;dashed=1;verticalAlign=bottom;" parent="pepfG31Gy_sQ8T56u4hY-63" vertex="1">
           <mxGeometry x="210" y="212.55" width="160" height="287.5" as="geometry" />
+        </mxCell>
+        <mxCell id="nDiRthgI7Fk0XDqXGq1e-1" value="This performs basic functionality like creating, deleting users, creating, invalidating API keys and authorisation" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#FFFFFF;fontSize=12;align=center;" vertex="1" parent="pepfG31Gy_sQ8T56u4hY-63">
+          <mxGeometry x="360" y="422.6" width="200" height="67.4" as="geometry" />
         </mxCell>
         <mxCell id="pepfG31Gy_sQ8T56u4hY-74" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;" parent="1" source="pepfG31Gy_sQ8T56u4hY-13" target="pepfG31Gy_sQ8T56u4hY-23" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -546,10 +549,10 @@
         <mxCell id="whnMAx33O79NBxOJvGVZ-5" value="" style="group" parent="1" vertex="1" connectable="0">
           <mxGeometry x="370" y="680" width="280" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="whnMAx33O79NBxOJvGVZ-6" value="All inputs are stored in an S3 bucket (Standard class initially). This bucket would be accessed by all the APIs" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#FFFFFF;fontSize=12;align=center;" parent="whnMAx33O79NBxOJvGVZ-5" vertex="1">
+        <mxCell id="whnMAx33O79NBxOJvGVZ-6" value="All inputs/outputs are stored in an S3 bucket (Standard class initially). This bucket would be accessed by all the APIs" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#FFFFFF;fontSize=12;align=center;" parent="whnMAx33O79NBxOJvGVZ-5" vertex="1">
           <mxGeometry x="20.29" y="16.33" width="259.71" height="53.67" as="geometry" />
         </mxCell>
-        <mxCell id="whnMAx33O79NBxOJvGVZ-7" value="7" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;strokeWidth=2;fontSize=16;align=center;fontColor=#FFFFFF;fillColor=#000000;fontFamily=Courier New;" parent="whnMAx33O79NBxOJvGVZ-5" vertex="1">
+        <mxCell id="whnMAx33O79NBxOJvGVZ-7" value="6" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;strokeWidth=2;fontSize=16;align=center;fontColor=#FFFFFF;fillColor=#000000;fontFamily=Courier New;" parent="whnMAx33O79NBxOJvGVZ-5" vertex="1">
           <mxGeometry width="32.857142857142854" height="32.857142857142854" as="geometry" />
         </mxCell>
         <mxCell id="whnMAx33O79NBxOJvGVZ-8" value="" style="points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=#60A337;gradientDirection=north;fillColor=#277116;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.infrequent_access_storage_class;" parent="1" vertex="1">
@@ -564,7 +567,7 @@
         <mxCell id="whnMAx33O79NBxOJvGVZ-11" value="The inputs are then moved to S3 IA(to save costs) after a period of 30 days. This is for Active Learning dataset that can be later used for training" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#FFFFFF;fontSize=12;align=center;" parent="whnMAx33O79NBxOJvGVZ-10" vertex="1">
           <mxGeometry x="20" y="16.33" width="160" height="103.67" as="geometry" />
         </mxCell>
-        <mxCell id="whnMAx33O79NBxOJvGVZ-12" value="8" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;strokeWidth=2;fontSize=16;align=center;fontColor=#FFFFFF;fillColor=#000000;fontFamily=Courier New;" parent="whnMAx33O79NBxOJvGVZ-10" vertex="1">
+        <mxCell id="whnMAx33O79NBxOJvGVZ-12" value="7" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;strokeWidth=2;fontSize=16;align=center;fontColor=#FFFFFF;fillColor=#000000;fontFamily=Courier New;" parent="whnMAx33O79NBxOJvGVZ-10" vertex="1">
           <mxGeometry width="32.857142857142854" height="32.857142857142854" as="geometry" />
         </mxCell>
         <mxCell id="whnMAx33O79NBxOJvGVZ-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;" parent="1" source="whnMAx33O79NBxOJvGVZ-13" target="whnMAx33O79NBxOJvGVZ-8" edge="1">
