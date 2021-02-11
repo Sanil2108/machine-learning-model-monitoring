@@ -1,8 +1,9 @@
 require('dotenv').config();
 
 const {
-  apiLogDataSchema,
-  inputOutputMetadataSchema
+  inputOutputMetadataSchema,
+  responseLogDataSchema,
+  requestLogDataSchema
 } = require('./schema');
 
 (async () => {
@@ -11,8 +12,16 @@ const {
 
   const rabbitMqDriver = require('./rabbitmqDriver');
   await rabbitMqDriver.initialize({
-    'api': (data) => {
-      if (!apiLogDataSchema.validate(data)) {
+    'api-request': (data) => {
+      if (!requestLogDataSchema.validate(data)) {
+        console.log('Something went wrong');
+        return;
+      }
+
+      await esDriver.addLogData(data);
+    },
+    'api-response': (data) => {
+      if (!responseLogDataSchema.validate(data)) {
         console.log('Something went wrong');
         return;
       }

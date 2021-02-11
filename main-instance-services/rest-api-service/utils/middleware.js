@@ -2,6 +2,7 @@ const atob = require("atob");
 const {validatePassword, checkFormatOfUuid} = require("../utils/utils");
 const { confirmIfApiKeyIsValid } = require("../routes/apikey/api");
 const {getPasswordHashFromEmail, } = require("../routes/users/dbOperations");
+const rabbitMqDriver = require('../drivers/rabbitMqDriver');
 
 const schemaValidationMiddleware = (schema) => {
   return async (req, res, next) => {
@@ -85,22 +86,23 @@ const apiKeyAuthorisationMiddleware = async (req, res, next) => {
       return;
     }
 
-    const getEmailResponse = await getEmailFromApiKey({apiKey});
-    if (!getEmailResponse.success) {
-      res.status(404).send("No such API key exist");
-      return;
-    }
-    const email = getEmailResponse.data.email;
+    // TODO:
+    // const getEmailResponse = await getEmailFromApiKey({apiKey});
+    // if (!getEmailResponse.success) {
+    //   res.status(404).send("No such API key exist");
+    //   return;
+    // }
+    // const email = getEmailResponse.data.email;
     
-    const confirmIfApiKeyIsValidResponse = await confirmIfApiKeyIsValid({apiKey, email});
-    if (!confirmIfApiKeyIsValidResponse.success) {
-      res.status(401).send("API Key is not valid.");
-      return;
-    }
+    // const confirmIfApiKeyIsValidResponse = await confirmIfApiKeyIsValid({apiKey, email});
+    // if (!confirmIfApiKeyIsValidResponse.success) {
+    //   res.status(401).send("API Key is not valid.");
+    //   return;
+    // }
     
-    req.user = {
-      email
-    }
+    // req.user = {
+    //   email
+    // }
     req.apiKey = apiKey;
 
     next();
@@ -116,7 +118,7 @@ const apiForwardMiddleware = (apiFunction, functionTitle) => {
     const body = req.body;
     const headers = req.headers;
 
-    console.log(`Received request for ${functionTitle}`);
+    // rabbitMqDriver.sendMessageToLoggingService(JSON.stringify());
 
     const response = await apiFunction({
       ...req,

@@ -8,6 +8,10 @@ const ROUTES = {
     BASE_URL: '/apikey',
     REGISTER_API_KEY: '/',
     INVALIDATE_API_KEY: '/invalidate'
+  },
+  PREDICT: {
+    BASE_URL: '/predict',
+    PREDICT: '/'
   }
 }
 

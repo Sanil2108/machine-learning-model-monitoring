@@ -140,14 +140,18 @@ resource "aws_instance" "MLModellingMonitoringInstance" {
   security_groups = [ aws_security_group.main_sg.id ]
 }
 
-resource "aws_instance" "MLModelInstance" {
-  tags = {
-    "Name" = "MLModelInstance"
-  }
-  ami           = "ami-073c8c0760395aab8"
-  instance_type = "t2.micro"
-  subnet_id     = aws_subnet.public.id
-  key_name      = "main-instance"
-  associate_public_ip_address = true
-  security_groups = [ aws_security_group.main_sg.id ]
+# resource "aws_instance" "MLModelInstance" {
+#   tags = {
+#     "Name" = "MLModelInstance"
+#   }
+#   ami           = "ami-073c8c0760395aab8"
+#   instance_type = "t2.micro"
+#   subnet_id     = aws_subnet.public.id
+#   key_name      = "main-instance"
+#   associate_public_ip_address = true
+#   security_groups = [ aws_security_group.main_sg.id ]
+# }
+
+output "MLModellingMonitoringInstanceIP" {
+  value = aws_instance.MLModellingMonitoringInstance.public_ip
 }

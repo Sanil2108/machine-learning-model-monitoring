@@ -1,19 +1,33 @@
 # Different types of logs
 
-## API Log
+## API Reqeust Log
 Format
 ```
 {
-  "type": "api",
+  "type": "api-request",
   "data": {
     "api-endpoint": "users/",
     "ip-address": "10.10.10.10",
+    "request-uuid": "",
     "request": {
       "timestamp": 100,
       "headers": {},
       "body": {},
       "method": "POST"
-    },
+    }
+  }
+}
+```
+
+## API Response Log
+Format
+```
+{
+  "type": "api-response",
+  "data": {
+    "api-endpoint": "users/",
+    "ip-address": "10.10.10.10",
+    "request-uuid": "",
     "response": {
       "timestamp": 100,
       "status": 200,
@@ -31,6 +45,7 @@ Format
   "data": {
     "timestamp": 100,
     "computation-time": 10,
+    "api-key": 11,
     "input-metadata": {
       "height": 100,
       "width": 100,
