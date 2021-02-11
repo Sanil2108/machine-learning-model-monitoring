@@ -12,29 +12,29 @@ const {
 
   const rabbitMqDriver = require('./rabbitmqDriver');
   await rabbitMqDriver.initialize({
-    'api-request': (data) => {
+    'api-request': async (data) => {
       if (!requestLogDataSchema.validate(data)) {
         console.log('Something went wrong');
         return;
       }
 
-      await esDriver.addLogData(data);
+      await esDriver.addLogData({type: 'api-request', data});
     },
-    'api-response': (data) => {
+    'api-response': async (data) => {
       if (!responseLogDataSchema.validate(data)) {
         console.log('Something went wrong');
         return;
       }
 
-      await esDriver.addLogData(data);
+      await esDriver.addLogData({type: 'api-response', data});
     },
-    'input-output-metadata': (data) => {
+    'prediction-data': async (data) => {
       if (!inputOutputMetadataSchema.validate(data)) {
         console.log('Something went wrong');
         return;
       }
 
-      await esDriver.addLogData(data);
+      await esDriver.addLogData({type: 'prediction-data', data});
     }
   });
 })();

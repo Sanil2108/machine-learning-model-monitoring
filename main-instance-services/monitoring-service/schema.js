@@ -23,25 +23,25 @@ const responseLogDataSchema = Joi.object({
     'request-uuid': Joi.string().required(),
     'response': Joi.object().required({
       'timestamp': Joi.number().required(),
-      'status': Joi.number.required(),
+      'status': Joi.number().required(),
       'data': Joi.object()
     })
   })
 });
 
 const inputOutputMetadataSchema = Joi.object({
-  type: Joi.string().required().equal('input-output-metadata'),
+  type: Joi.string().required().equal('prediction-data'),
   data: Joi.object({
     'timestamp': Joi.number().required(),
     'computation-time': Joi.number().required(),
     'api-key': Joi.string().required(),
+    'request-uuid': Joi.string().required(),
     'input-metadata': Joi.object({
-      'height': Joi.number().required(),
-      'width': Joi.number().required(),
-      'contrast': Joi.number().required()
+      'url': Joi.string().required(),
     }),
     'output-metadata': Joi.object({
-      'confidence': Joi.number().required()
+      'confidence': Joi.number().required(),
+      'faceLocationRectangles': Joi.array().required()
     })
   })
 });

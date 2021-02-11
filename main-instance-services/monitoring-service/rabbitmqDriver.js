@@ -36,7 +36,7 @@ class RabbitMQDriver {
       queue,
       function (msg) {
         const obj = JSON.parse(msg.content.toString());
-        typeCallbacks[obj.type](msg.content.toString());
+        typeCallbacks[obj.type](JSON.stringify(obj.data));
       },
       {
         noAck: true,

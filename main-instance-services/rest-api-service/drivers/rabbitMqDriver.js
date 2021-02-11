@@ -32,6 +32,7 @@ class RabbitMQDriver {
   }
 
   sendMessageToLoggingService(message) {
+    const queue = process.env.RABBITMQ_QUEUE_NAME;
     this.channel.sendToQueue(queue, Buffer.from(message));
   }
 

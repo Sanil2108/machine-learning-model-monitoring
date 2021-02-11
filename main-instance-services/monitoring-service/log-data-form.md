@@ -41,7 +41,7 @@ Format
 Format
 ```
 {
-  "type": "input-output-metadata",
+  "type": "prediction-data",
   "data": {
     "timestamp": 100,
     "computation-time": 10,

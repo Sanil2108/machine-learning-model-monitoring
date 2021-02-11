@@ -1,25 +1,26 @@
 const elasticsearch = require('elasticsearch');
 
 class ESDriver {
-  constructor()
+  constructor() {}
 
   async initialize() {
     this.client = new elasticsearch.Client({
       host: process.env.ELAST_SEARCH_HOST,
       log: 'trace',
-      apiVersion: process.env.ELAST_SEARCH_VERSION,
+      apiVersion: process.env.ELASTIC_SEARCH_VERSION,
     });
   }
 
   async addLogData({type, data}) {
     try {
-      await this.client.create({
-        type,
-        body: data
+      // console.log(data);
+      await this.client.index({
+        body: data,
+        index: type
       });
     }
     catch (ex) {
-      console.log('Something went wrong when inserting data into ES');
+      console.log('Something went wrong when inserting data into ES', ex);
     }
   }
 
