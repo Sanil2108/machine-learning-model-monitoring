@@ -1,11 +1,14 @@
 version: "3.3"
 services:
+  docker-host:
+    image: qoomon/docker-host
+
   database:
     image: postgres:13
     env_file: ./database/.env
     ports:
       - "5433:5432"
-  
+
   database-config:
     image: postgres:13
     env_file: ./database/.env
@@ -15,11 +18,25 @@ services:
       - database
     command: /database/init.sh
 
-  # monitoring-service:
-  #   build: ./monitoring-service
+  monitoring-service:
+    build: ./monitoring-service
+    depends_on:
+      - "elastic-search"
+      - "kibana"
+      - "rabbitmq"
+    ports:
+      - "5000:5000"
 
-  # rest-api-service:
-  #   build: ./rest-api-service
+  rest-api-service:
+    depends_on:
+      - "database"
+      - "database-config"
+      - "rabbitmq"
+      - "web-server"
+      - "docker-host"
+    build: ./rest-api-service
+    ports:
+      - "3000:3000"
 
   elastic-search:
     image: elasticsearch:7.10.1
@@ -32,10 +49,9 @@ services:
     image: kibana:7.10.1
     ports:
       - "5601:5601"
-    environment: 
+    environment:
       ELASTICSEARCH_URL: http://elastic-search:9200
       ELASTICSEARCH_HOSTS: http://elastic-search:9200
-
 
   rabbitmq:
     image: rabbitmq
@@ -44,3 +60,7 @@ services:
 
   web-server:
     image: nginx
+
+networks:
+  host_network:
+    driver: host

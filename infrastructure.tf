@@ -75,6 +75,11 @@ resource "aws_iam_role_policy_attachment" "attachment" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
 }
 
+resource "aws_iam_role_policy_attachment" "attachment2" {
+  role = aws_iam_role.s3BucketWritePermissions.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforAWSCodeDeploy"
+}
+
 resource "aws_vpc" "main" {
   cidr_block = "10.0.0.0/16"
   tags = {
@@ -147,6 +152,11 @@ resource "aws_iam_instance_profile" "ml_model_monitoring_main_instance_profile" 
   role = aws_iam_role.s3BucketWritePermissions.name
 }
 
+resource "aws_iam_instance_profile" "ml_model_profile" {
+  name = "ml_model_profile_1"
+  role = "EC2InstanceRole"
+}
+
 resource "aws_instance" "MLModellingMonitoringInstance" {
   tags = {
     "Name" = "MLModellingMonitoringInstance"
@@ -160,22 +170,35 @@ resource "aws_instance" "MLModellingMonitoringInstance" {
   security_groups = [ aws_security_group.main_sg.id ]
 }
 
-# resource "aws_instance" "MLModelInstance" {
-#   tags = {
-#     "Name" = "MLModelInstance"
-#   }
-#   ami           = "ami-073c8c0760395aab8"
-#   instance_type = "t2.micro"
-#   subnet_id     = aws_subnet.public.id
-#   key_name      = "main-instance"
-#   associate_public_ip_address = true
-#   security_groups = [ aws_security_group.main_sg.id ]
-# }
+resource "aws_eip_association" "eip_assoc" {
+  instance_id   = aws_instance.MLModellingMonitoringInstance.id
+  allocation_id = "eipalloc-0808d70228cda3b32"
+}
+
+
+resource "aws_instance" "MLModelInstance" {
+  tags = {
+    "Name" = "MLModelInstance"
+  }
+  iam_instance_profile = "ml_model_profile_1"
+  ami           = "ami-073c8c0760395aab8"
+  instance_type = "t2.micro"
+  subnet_id     = aws_subnet.public.id
+  key_name      = "main-instance"
+  associate_public_ip_address = true
+  security_groups = [ aws_security_group.main_sg.id ]
+}
+
+resource "aws_eip_association" "eip_assoc_2" {
+  instance_id   = aws_instance.MLModelInstance.id
+  allocation_id = "eipalloc-022890aa7da3fb2c1"
+}
+
 
 output "MLModellingMonitoringInstanceIP" {
   value = aws_instance.MLModellingMonitoringInstance.public_ip
 }
 
-# output "MLModelInstanceIP" {
-#   value = aws_instance.MLModelInstance.public_ip
-# }
+output "MLModelInstanceIP" {
+  value = aws_instance.MLModelInstance.public_ip
+}
