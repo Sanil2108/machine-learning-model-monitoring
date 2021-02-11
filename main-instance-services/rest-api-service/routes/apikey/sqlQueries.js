@@ -21,7 +21,8 @@ const getEmailFromApiKeyQuery = () => {
   return `SELECT um.email
     FROM user_master um
     INNER JOIN users_api_key uak ON uak.users_id = um.users_id
-    INNER JOIN api_key ak ON ak.api_key_id = uak.api_key_id`
+    INNER JOIN api_key ak ON ak.api_key_id = uak.api_key_id
+    WHERE ak.api_key = $1`
 }
 
 module.exports = {

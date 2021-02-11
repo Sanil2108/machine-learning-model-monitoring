@@ -22,10 +22,12 @@ class S3Driver {
   async uploadImageToS3({ imageBase64, uuid }) {
     const imageBinaryData = Buffer.from(imageBase64.replace(/^data:image\/\w+;base64,/, ""),'base64');
 
+    const key = `input-${uuid}.png`;
+
     await new Promise((resolve, reject) => {
       this.s3Client.putObject({
         Body: imageBinaryData, 
-        Key: `input-${uuid}.png`,
+        Key: key,
         Bucket: process.env.BUCKET_NAME, 
       }, (err, data) => {
         if (err) {
@@ -36,6 +38,7 @@ class S3Driver {
         resolve(data);
       })
     })
+    return `https://${process.env.BUCKET_NAME}.s3.ap-south-1.amazonaws.com/${key}`
   }
 }
 

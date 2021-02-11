@@ -3,12 +3,10 @@ const mlModelDriver = require('../../drivers/mlModelDriver');
 const rabbitmqDriver = require('../../drivers/rabbitMqDriver');
 
 const uploadImageToS3 = (image, requestUUID) => {
-  s3Driver.uploadImageToS3({
+  return s3Driver.uploadImageToS3({
     imageBase64: image,
     uuid: requestUUID
-  });  
-
-  return requestUuid;
+  });
 }
 
 const sendInputToMLModel = async (image, requestUUID) => {
@@ -40,11 +38,11 @@ const predict = async ({body, requestUUID, apiKey}, res) => {
   const {image} = body;
 
   // Upload the image to S3
-  await uploadImageToS3(image, requestUUID);
+  const imageURL = await uploadImageToS3(image, requestUUID);
 
   // Send image to flask and wait for output
   const startTime = (new Date().getTime());
-  const prediction = await sendInputToMLModel(image, requestUUID);
+  const prediction = await sendInputToMLModel(imageURL, requestUUID);
   const computationTime = (new Date().getTime()) - startTime;
 
   // Send output data to rabbitmq
@@ -55,7 +53,9 @@ const predict = async ({body, requestUUID, apiKey}, res) => {
   // Upload this image to S3
 
   return {
-    prediction
+    data: {
+      prediction
+    }
   }
 }
 
