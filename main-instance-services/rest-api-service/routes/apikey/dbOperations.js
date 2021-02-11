@@ -1,5 +1,5 @@
 const postgresDriver = require("../../drivers/postgresDriver");
-const { createNewAPIKeyQuery, invalidateAPIKeyQuery, associateApiKeyWithUserQuery } = require("./sqlQueries");
+const { createNewAPIKeyQuery, invalidateAPIKeyQuery, associateApiKeyWithUserQuery, getEmailFromApiKeyQuery } = require("./sqlQueries");
 
 const disassociateAPIKeyWithUser = async ({apiKey}) => {
   const query = invalidateAPIKeyQuery();
@@ -66,7 +66,21 @@ const createAndAssociateUserWithNewAPIKey = async ({apiKey, createdAt, email}) =
   }
 }
 
+const getEmailFromApiKey = async ({apiKey}) => {
+  const query = getEmailFromApiKeyQuery();
+
+  const {rows} = await postgresDriver.query(query, [apiKey]);
+
+  return {
+    success: rows.length > 0,
+    data: {
+      email: rows && Array.isArray(rows) && rows.length > 0 ? rows[0].email : null
+    }
+  }
+}
+
 module.exports = {
   disassociateAPIKeyWithUser,
-  createAndAssociateUserWithNewAPIKey
+  createAndAssociateUserWithNewAPIKey,
+  getEmailFromApiKey
 }

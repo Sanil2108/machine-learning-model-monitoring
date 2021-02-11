@@ -1,12 +1,9 @@
 const s3Driver = require('../../drivers/s3Driver');
-const { createUUID } = require('../../utils/utils');
 
-const uploadImageToS3 = (image) => {
-  const requestUuid = `request_image_${createUUID()}`;
-
+const uploadImageToS3 = (image, requestUUID) => {
   s3Driver.uploadImageToS3({
     imageBase64: image,
-    uuid: requestUuid
+    uuid: requestUUID
   });  
 
   return requestUuid;
@@ -24,11 +21,11 @@ const sendOutputResponseLogToRabbitMQ = (requestUuid) => {
 
 }
 
-const predict = async ({body}, res) => {
+const predict = async ({body, requestUUID}, res) => {
   const {image} = body;
 
   // Upload the image to S3
-  const requestUuid = await uploadImageToS3(image);
+  await uploadImageToS3(image, requestUuid);
 
   // Send data to rabbitmq
   sendImageRequestLogToRabbitMQ(requestUuid);

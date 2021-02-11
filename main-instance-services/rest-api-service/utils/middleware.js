@@ -1,8 +1,9 @@
 const atob = require("atob");
-const {validatePassword, checkFormatOfUuid} = require("../utils/utils");
+const {validatePassword, checkFormatOfUuid, createUUID} = require("../utils/utils");
 const { confirmIfApiKeyIsValid } = require("../routes/apikey/api");
 const {getPasswordHashFromEmail, } = require("../routes/users/dbOperations");
 const rabbitMqDriver = require('../drivers/rabbitMqDriver');
+const { getEmailFromApiKey } = require("../routes/apikey/dbOperations");
 
 const schemaValidationMiddleware = (schema) => {
   return async (req, res, next) => {
@@ -86,23 +87,12 @@ const apiKeyAuthorisationMiddleware = async (req, res, next) => {
       return;
     }
 
-    // TODO:
-    // const getEmailResponse = await getEmailFromApiKey({apiKey});
-    // if (!getEmailResponse.success) {
-    //   res.status(404).send("No such API key exist");
-    //   return;
-    // }
-    // const email = getEmailResponse.data.email;
+    const getEmailResponse = await getEmailFromApiKey({apiKey});
+    if (!getEmailResponse.success) {
+      res.status(404).send("No such API key exist");
+      return;
+    }
     
-    // const confirmIfApiKeyIsValidResponse = await confirmIfApiKeyIsValid({apiKey, email});
-    // if (!confirmIfApiKeyIsValidResponse.success) {
-    //   res.status(401).send("API Key is not valid.");
-    //   return;
-    // }
-    
-    // req.user = {
-    //   email
-    // }
     req.apiKey = apiKey;
 
     next();
@@ -113,18 +103,48 @@ const apiKeyAuthorisationMiddleware = async (req, res, next) => {
   }
 }
 
-const apiForwardMiddleware = (apiFunction, functionTitle) => {
+const apiForwardMiddleware = (apiFunction) => {
   return async (req, res, next) => {
     const body = req.body;
     const headers = req.headers;
+    const requestUUID = createUUID();
+    const requestIPAddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 
-    // rabbitMqDriver.sendMessageToLoggingService(JSON.stringify());
+    rabbitMqDriver.sendMessageToLoggingService(JSON.stringify({
+      type: 'api-request',
+      data: {
+        'api-endpoint': req.originalUrl,
+        'ip-address': requestIPAddress,
+        'request-uuid': requestUUID,
+        'request': {
+          'timestamp': (new Date()).getTime(),
+          'headers': headers,
+          'body': body,
+          'method': req.method
+        }
+      }
+    }));
 
     const response = await apiFunction({
       ...req,
       headers,
       body,
+      requestUUID
     }, res);
+
+    rabbitMqDriver.sendMessageToLoggingService(JSON.stringify({
+      type: 'api-response',
+      data: {
+        'api-endpoint': req.originalUrl,
+        'ip-address': requestIPAddress,
+        'request-uuid': requestUUID,
+        'response': {
+          'timestamp': (new Date()).getTime(),
+          'status': res.status,
+          'data': response,
+        }
+      }
+    }));
 
     if (response) {
       res.json(response.data);

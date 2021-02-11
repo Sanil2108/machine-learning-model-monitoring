@@ -17,9 +17,17 @@ const associateApiKeyWithUserQuery = () => {
   return `INSERT INTO users_api_key (api_key_id, users_id) VALUES ((SELECT api_key_id FROM api_key WHERE api_key.api_key = $1), (SELECT users_id FROM user_master WHERE user_master.email = $2))`;
 };
 
+const getEmailFromApiKeyQuery = () => {
+  return `SELECT um.email
+    FROM user_master um
+    INNER JOIN users_api_key uak ON uak.users_id = um.users_id
+    INNER JOIN api_key ak ON ak.api_key_id = uak.api_key_id`
+}
+
 module.exports = {
   getApiKeyAssociatedWithEmailQuery,
   createNewAPIKeyQuery,
   invalidateAPIKeyQuery,
   associateApiKeyWithUserQuery,
+  getEmailFromApiKeyQuery
 };
