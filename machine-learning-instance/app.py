@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/predict', methods=['POST'])
 def predict():
-  if 'url' not in request.json:
+  if 'url' not in request.json or 'requestUUID' not in request.json:
     abort(400)
 
   # Get the image URL from the request object
@@ -45,5 +45,6 @@ def predict():
   # Return all the faces found in JSON
   return {
     'faceLocationRectangles': rectangles,
-    'confidence': random.uniform(0, 1)
+    'confidence': random.uniform(0, 1),
+    'requestUUID': request.json['requestUUID']
   }
