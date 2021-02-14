@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const {ROUTES} = require('./utils/constants');
 
 (async () => {
+  await new Promise(r => setTimeout(r, 5000));
+
   const app = require("express")();
 
   app.use(cors());

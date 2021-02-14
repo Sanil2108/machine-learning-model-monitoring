@@ -7,6 +7,8 @@ const {
 } = require('./schema');
 
 (async () => {
+  await new Promise(r => setTimeout(r, 5000));
+  
   const esDriver = require('./esDriver');
   await esDriver.initialize();
 
