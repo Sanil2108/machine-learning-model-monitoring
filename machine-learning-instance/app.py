@@ -3,7 +3,6 @@ from flask import Flask, request, abort
 import face_recognition
 import requests
 import uuid
-import cv2
 import os
 import random
 
@@ -48,3 +47,6 @@ def predict():
     'confidence': random.uniform(0, 1),
     'requestUUID': request.json['requestUUID']
   }
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
