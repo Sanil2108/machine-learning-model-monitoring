@@ -1,8 +1,5 @@
 version: "3.3"
 services:
-  docker-host:
-    image: qoomon/docker-host
-
   database:
     image: postgres:13
     env_file: ./database/.env
@@ -19,7 +16,8 @@ services:
     command: /database/init.sh
 
   monitoring-service:
-    build: ./monitoring-service
+    image: public.ecr.aws/w4z6a5p7/ml-monitoring-monitoring-service:latest
+    # build: ./monitoring-service
     depends_on:
       - "elastic-search"
       - "kibana"
@@ -28,13 +26,12 @@ services:
       - "5000:5000"
 
   rest-api-service:
+    image: public.ecr.aws/w4z6a5p7/ml-monitoring-rest-api-service
+    # build: ./rest-api-service
     depends_on:
       - "database"
       - "database-config"
       - "rabbitmq"
-      - "web-server"
-      - "docker-host"
-    build: ./rest-api-service
     ports:
       - "3000:3000"
 
@@ -59,7 +56,12 @@ services:
       - "5672:5672"
 
   web-server:
-    image: nginx
+    image: public.ecr.aws/w4z6a5p7/web-server-service:latest
+    # build: ./web-server
+    depends_on: 
+      - "rest-api-service"
+    ports: 
+      - "80:80"
 
 networks:
   host_network:

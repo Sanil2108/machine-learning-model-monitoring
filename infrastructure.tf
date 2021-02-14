@@ -230,8 +230,8 @@ resource "aws_instance" "MLModelInstance" {
   security_groups = [ aws_security_group.ml_model_instance_sg.id ]
   user_data = <<EOF
     #!/bin/bash
-    sudo apt-get update;
-    sudo apt-get install -y docker.io;
+    sudo apt-get update
+    sudo apt-get install -y docker.io
     sudo docker run --name flaskwebapp -p 5000:5000 -itd public.ecr.aws/w4z6a5p7/ml-model-instance:latest
   EOF
 }
