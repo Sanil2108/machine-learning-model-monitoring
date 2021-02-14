@@ -209,6 +209,14 @@ resource "aws_instance" "MLModellingMonitoringInstance" {
   key_name             = "main-instance"
   associate_public_ip_address = true
   security_groups = [ aws_security_group.main_services_sg.id ]
+  root_block_device {
+    volume_size = 14
+  }
+  user_data = <<EOF
+    #!/bin/bash
+    sudo apt-get update
+    sudo apt-get install -y docker.io
+  EOF
 }
 
 resource "aws_eip_association" "eip_assoc" {
