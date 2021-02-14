@@ -5,6 +5,13 @@ const {getPasswordHashFromEmail, } = require("../routes/users/dbOperations");
 const rabbitMqDriver = require('../drivers/rabbitMqDriver');
 const { getEmailFromApiKey } = require("../routes/apikey/dbOperations");
 
+/**
+ * Takes a Joi.Schema object and returns a middleware function that would validate the body of the request,
+ * and depending on the result of the validation, return an appropriate response
+ * @param  {Object} schema
+ * 
+ * @returns {Function}
+ */
 const schemaValidationMiddleware = (schema) => {
   return async (req, res, next) => {
     try {
@@ -22,6 +29,13 @@ const schemaValidationMiddleware = (schema) => {
   };
 };
 
+/**
+ * Takes a Joi Schema object and returns a middleware function that would validate the body of the request,
+ * and depending on the result of the validation, return an appropriate response
+ * @param  {Object} schema A Joi Schema object
+ * 
+ * @returns {Function}
+ */
 const headerValidationMiddleware = (schema) => {
   return async (req, res, next) => {
     try {
@@ -39,6 +53,15 @@ const headerValidationMiddleware = (schema) => {
   };
 };
 
+/**
+ * Checks whether a request headers contains the required correct details for basic authorization.
+ * Adds a user field in the request object if the details are correct.
+ * @param  {Object} req
+ * @param  {Object} res
+ * @param  {Function} next
+ * 
+ * @returns {Promise}
+ */
 const basicAuthorizationMiddleware = async (req, res, next) => {
   if (!req.headers.authorization) {
     res.status(400).send("Authorization failed. ");
@@ -73,6 +96,15 @@ const basicAuthorizationMiddleware = async (req, res, next) => {
   }
 };
 
+/**
+ * Checks whether a request headers contains the required correct details for api key authorization.
+ * Adds the api key field in the request object if the details are correct.
+ * @param  {Object} req
+ * @param  {Object} res
+ * @param  {Function} next
+ * 
+ * @returns {Promise}
+ */
 const apiKeyAuthorisationMiddleware = async (req, res, next) => {
   if (!req.headers.authorization) {
     res.status(400).send("Authorization Failed.");
@@ -103,6 +135,12 @@ const apiKeyAuthorisationMiddleware = async (req, res, next) => {
   }
 }
 
+/**
+ * Returns a middleware function that would automatically log requests and responses for api calls.
+ * @param  {Function} apiFunction
+ * 
+ * @returns {Function}
+ */
 const apiForwardMiddleware = (apiFunction) => {
   return async (req, res, next) => {
     const body = req.body;
