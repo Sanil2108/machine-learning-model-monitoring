@@ -3,5 +3,6 @@
 
 **/node_modules
 *.tfstate*
+terraform.tfstate.backup
 
 .terraform

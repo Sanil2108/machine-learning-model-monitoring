@@ -114,8 +114,49 @@ resource "aws_route_table_association" "public_subnet_association" {
   subnet_id      = aws_subnet.public.id
 }
 
-resource "aws_security_group" "main_sg" {
-  name   = "main_sg"
+resource "aws_security_group" "ml_model_instance_sg" {
+  name   = "ml_model_instance_sg"
+  vpc_id = aws_vpc.main.id
+
+  ingress {
+    from_port   = 5000
+    to_port     = 5000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+
+  ingress {
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port = 0
+    to_port   = 0
+    protocol  = -1
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+resource "aws_security_group" "main_services_sg" {
+  name   = "main_services_sg"
   vpc_id = aws_vpc.main.id
 
   ingress {
@@ -167,7 +208,7 @@ resource "aws_instance" "MLModellingMonitoringInstance" {
   subnet_id            = aws_subnet.public.id
   key_name             = "main-instance"
   associate_public_ip_address = true
-  security_groups = [ aws_security_group.main_sg.id ]
+  security_groups = [ aws_security_group.main_services_sg.id ]
 }
 
 resource "aws_eip_association" "eip_assoc" {
@@ -186,7 +227,13 @@ resource "aws_instance" "MLModelInstance" {
   subnet_id     = aws_subnet.public.id
   key_name      = "main-instance"
   associate_public_ip_address = true
-  security_groups = [ aws_security_group.main_sg.id ]
+  security_groups = [ aws_security_group.ml_model_instance_sg.id ]
+  user_data = <<EOF
+    #!/bin/bash
+    sudo apt-get update;
+    sudo apt-get install -y docker.io;
+    sudo docker run --name flaskwebapp -p 5000:5000 -itd public.ecr.aws/w4z6a5p7/ml-model-instance:latest
+  EOF
 }
 
 resource "aws_eip_association" "eip_assoc_2" {
